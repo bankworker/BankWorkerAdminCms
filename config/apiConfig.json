@@ -1,0 +1,11 @@
+{
+  "StoreService": {
+    "host": "localhost",
+    "port": 8080,
+    "path": {
+      "bank": "/api/bank",
+      "bankCodeExist": "/api/bank/exist",
+      "changeStatus4Bank": "/api/bank/changeStatus"
+    }
+  }
+}

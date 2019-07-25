@@ -1,0 +1,111 @@
+<div class="breadcrumbs" id="breadcrumbs">
+  <ul class="breadcrumb">
+    <li>
+      <i class="icon-home home-icon"></i>
+      <a href="/index">主页</a>
+    </li>
+    <li>
+      <a href="/bank">银行管理</a>
+    </li>
+    <li class="active">银行信息编辑</li>
+  </ul>
+</div>
+
+<div class="page-content" ng-app="myApp" ng-controller="myCtrl">
+  <div class="page-header">
+    <h1>
+      银行管理
+      <small>
+        <i class="icon-double-angle-right"></i>
+        信息编辑
+      </small>
+    </h1>
+  </div>
+  <div class="row edit-content">
+    <div class="col-xs-12">
+      <div class="base-info">
+        <div class="info-title">
+          基本信息
+        </div>
+        <div class="detail-content">
+          <div class="detail-image">
+            <img ng-src="\{{model.bankLogo}}" alt="" class="img-responsive">
+            <div class="space-4"></div>
+            <p>
+              <button class="btn btn-sm btn-purple" ng-click="onShowUploadLogo()">修改LOGO</button>
+            </p>
+          </div>
+          <div class="detail-info">
+            <div class="info-line"></div>
+            <div class="info-text">
+              <span>银行编码：</span>
+              <span ng-bind="model.bankCode"></span>
+            </div>
+            <div class="info-line"></div>
+            <div class="info-text">
+              <span>银行名称：</span>
+              <span ng-bind="model.bankName"></span>
+            </div>
+            <div class="info-line"></div>
+          </div>
+        </div>
+      </div>
+      <div class="edit-info">
+        <div class="info-title">
+          信息编辑
+        </div>
+        <div class="detail-content">
+          <form class="form-horizontal" name="myForm" novalidate>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">银行编码</label>
+              <div class="col-sm-10" ng-class="{'check-invalid':model.bankCodeInvalid}">
+                <input type="text" class="form-control" maxlength="12" name="bankCode" ng-blur="onBankCodeBlur()" ng-model="model.bankCode" required placeholder="请输入银行编码">
+                <p ng-show="model.bankCodeInvalid">该银行编码已存在！</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">银行名称</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control"  maxlength="20" name="bankName" ng-model="model.bankName" required placeholder="请输入银行名称">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" class="btn btn-primary" ng-disabled="(myForm.bankCode.$pristine && model.add)
+                                                                          || (myForm.bankCode.$dirty && myForm.bankCode.$invalid)
+                                                                          || (myForm.bankName.$pristine && model.add)
+                                                                          || (myForm.bankName.$dirty && myForm.bankName.$invalid)
+                                                                          || model.bankCodeInvalid"
+                        ng-click="onSubmit()">提交</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" tabindex="-1" role="dialog" id="modal-upload-logo">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">上传图片（*.jpg, *.jpeg, *.png）</h4>
+        </div>
+        <div class="alert alert-danger store-alert hidden">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <span></span>
+        </div>
+        <div class="modal-body">
+          <div id="file-upload-thumbnail" class="fileUploadContent"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  <input type="hidden" value="{{bankID}}" id="hidden-bankID">
+  <input type="hidden" ng-model="model.option">
+</div>
+
+<script src="/javascripts/view/bankEdit.js"></script>

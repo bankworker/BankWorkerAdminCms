@@ -1,0 +1,7 @@
+{
+  "dataStatus": {
+    "normal": "N",
+    "frozen": "F",
+    "delete": "D"
+  }
+}

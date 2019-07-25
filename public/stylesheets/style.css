@@ -1,0 +1,52 @@
+.edit-content .base-info{
+    float: left;
+    width: 30%;
+    border: 1px solid #cccccc;
+    margin-right: 5px;
+    padding-bottom: 25px;
+}
+
+.edit-content .edit-info{
+    float: left;
+    width: 69%;
+    border: 1px solid #cccccc;
+}
+
+.info-title{
+    padding: 5px;
+    background-color: #f1f1f1;
+}
+.detail-content{
+    padding: 5px;
+}
+.edit-content .detail-image{
+    width: 80%;
+    margin: 0 auto;
+}
+.detail-image{
+    text-align: center;
+}
+.info-line{
+    border-top: 1px solid #f1f1f1;
+}
+.info-text{
+    padding: 10px;
+}
+.info-text span:nth-child(2){
+    float: right;
+}
+.check-invalid input{
+    border: 1px solid #c51919;
+    color: #c51919
+}
+.check-invalid p{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #c51919
+}
+.form-actions select{
+    width: 120px;
+}
+.table td{
+    vertical-align: middle !important;
+}
