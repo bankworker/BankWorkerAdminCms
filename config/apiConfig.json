@@ -5,7 +5,8 @@
     "path": {
       "bank": "/api/bank",
       "bankCodeExist": "/api/bank/exist",
-      "changeStatus4Bank": "/api/bank/changeStatus"
+      "changeStatus4Bank": "/api/bank/changeStatus",
+      "login": "/api/admin/login"
     }
   }
 }

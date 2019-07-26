@@ -53,8 +53,7 @@ app.controller('myCtrl', function ($scope, $http) {
       bankCode: $scope.model.bankCode,
       bankName: $scope.model.bankName,
       bankLogo: $scope.model.bankLogo,
-      // loginUser: getLoginUser()
-      loginUser: 'zhangqiang'
+      loginUser: getLoginUser()
     }).then(function successCallback(response) {
       if(response.data.err){
         bootbox.alert(response.data.msg);
@@ -72,8 +71,7 @@ app.controller('myCtrl', function ($scope, $http) {
       bankCode: $scope.model.bankCode,
       bankName: $scope.model.bankName,
       bankLogo: $scope.model.bankLogo,
-      // loginUser: getLoginUser()
-      loginUser: 'zhangqiang'
+      loginUser: getLoginUser()
     }).then(function successCallback(response) {
       if(response.data.err){
         bootbox.alert(response.data.msg);

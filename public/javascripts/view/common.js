@@ -136,21 +136,22 @@ function setPaginationStatus() {
 
 function addCommonEvent() {
   $('li.logout').click(function () {
-    delCookie('loginUser');
+    delCookie('bwa.user');
     location.href = '/';
   });
 }
 
 function showLoginUser() {
-  var cookie = getCookie('loginUser');
+  let cookie = getCookie('bwa.user');
   if(cookie !== null){
-    var loginUser = JSON.parse(cookie);
-    $('li.light-blue span.user-info>span').text(loginUser.userName);
+    let loginUser = JSON.parse(cookie);
+    $('#login-user-photo').attr('src', loginUser.adminPhoto);
+    $('li.light-blue span.user-info>span').text(loginUser.adminName);
   }
 }
 
 function getLoginUserInfo() {
-  var cookie = getCookie('loginUser');
+  var cookie = getCookie('bwa.user');
   if(cookie !== null){
     return JSON.parse(cookie);
   }
@@ -159,10 +160,10 @@ function getLoginUserInfo() {
 }
 
 function getLoginUser() {
-  var cookie = getCookie('loginUser');
+  var cookie = getCookie('bwa.user');
   if(cookie !== null){
     var loginUser = JSON.parse(cookie);
-    return loginUser.cellphone;
+    return loginUser.adminID;
   }
 
   return 'unknown';

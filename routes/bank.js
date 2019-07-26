@@ -15,17 +15,20 @@ router.get('/', function(req, res, next) {
 
   service.getPageDataWithStatus(pageNumber, dataStatus, function (result) {
     let renderData = commonService.buildRenderData('银行管理', pageNumber, result);
-    for(let bank of renderData.dataList){
-      if(bank.dataStatus === 'N'){
-        bank.isNormal = true;
-      }
-      if(bank.dataStatus === 'F'){
-        bank.isFrozen = true;
-      }
-      if(bank.dataStatus === 'D'){
-        bank.isDelete = true;
+    if(renderData.dataList !== null){
+      for(let bank of renderData.dataList){
+        if(bank.dataStatus === 'N'){
+          bank.isNormal = true;
+        }
+        if(bank.dataStatus === 'F'){
+          bank.isFrozen = true;
+        }
+        if(bank.dataStatus === 'D'){
+          bank.isDelete = true;
+        }
       }
     }
+
     renderData.dataStatus = dataStatus;
     res.render('bank', renderData);
   });

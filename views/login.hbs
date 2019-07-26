@@ -7,13 +7,14 @@
   <link rel="stylesheet" href="/stylesheets/googleapis/googleapis.css" />
   <link rel="stylesheet" href="/stylesheets/ace/ace.min.css" />
   <link rel='stylesheet' href='/stylesheets/style.css' />
-  <script src="/javascripts/jquery-2.2.0/jquery-2.2.0.min.js"></script>
-<!--  <script src="/javascripts/vuejs/vue.js"></script>-->
-<!--  <script src="/javascripts/layer/layer.js"></script>-->
   <link rel="stylesheet" href='/stylesheets/login.css'>
+  <script src="/javascripts/angular-1.7.8/angular.min.js"></script>
+  <script src="/javascripts/jquery-2.2.0/jquery-2.2.0.min.js"></script>
+  <script src="/javascripts/bootstrap-3.3.7/bootstrap.min.js"></script>
+  <script src="/bootbox/bootbox.min.js"></script>
 </head>
 <body class="login-layout">
-<div class="main-container" id="app">
+<div class="main-container">
   <div class="main-content">
     <div class="row">
       <div class="col-sm-10 col-sm-offset-1">
@@ -26,35 +27,30 @@
 
           <div class="space-6"></div>
 
-          <div class="position-relative">
+          <div class="position-relative" ng-app="myApp" ng-controller="myCtrl">
             <div id="login-box" class="login-box visible widget-box no-border">
               <div class="widget-body">
                 <div class="widget-main">
                   <h4 class="header blue lighter bigger">
                     管理员后台管理系统
                   </h4>
-
-                  <div class="alert alert-warning alert-dismissible hidden" role="alert">
-                    <strong>提示!</strong>
-                    <span></span>
-                  </div>
                   <div class="space-6"></div>
-                  <form>
+                  <form name="myForm" novalidate>
                     <fieldset>
                       <label class="block clearfix">
                           <span class="block input-icon input-icon-right">
-                            <input type="text" class="form-control" maxlength="11" v-model="cellphone" placeholder="手机号" autofocus />
+                            <input type="text" name="cellphone" class="form-control" maxlength="11" ng-model="model.cellphone" required placeholder="手机号" autofocus />
                             <i class="icon-user"></i>
                           </span>
                       </label>
                       <label class="block clearfix">
                           <span class="block input-icon input-icon-right">
-                            <input type="password" class="form-control" maxlength="15" v-model="password" placeholder="密码" />
+                            <input type="password" name="password" class="form-control" maxlength="15" ng-model="model.password" required placeholder="密码" />
                             <i class="icon-lock"></i>
                           </span>
                       </label>
                       <div class="clearfix">
-                        <button type="button" class="pull-right btn btn-sm btn-primary btn-block" :disabled="!enabledSave" @click="onLogin">
+                        <button type="button" class="pull-right btn btn-sm btn-primary btn-block" ng-disabled="myForm.cellphone.$pristine || (myForm.cellphone.$dirty && myForm.cellphone.$invalid) || myForm.password.$pristine || (myForm.password.$dirty && myForm.password.$invalid)" ng-click="onLogin()">
                           <i class="icon-key"></i>
                           登陆
                         </button>
@@ -77,6 +73,6 @@
   </div>
 </div><!-- /.main-container -->
 <script src="/javascripts/view/common.js"></script>
-<!--<script src="/javascripts/view/login.js"></script>-->
+<script src="/javascripts/view/login.js"></script>
 </body>
 </html>
