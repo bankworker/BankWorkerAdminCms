@@ -34,8 +34,7 @@ app.controller('myCtrl', function ($scope, $http) {
           $http.put('/bank/changeStatus', {
             bankID:  bankID,
             dataStatus: 'D',
-            // loginUser: getLoginUser()
-            loginUser: 'zhangqiang'
+            loginUser: getLoginUser()
           }).then(function successCallback(response) {
             if(response.data.err){
               bootbox.alert(response.data.msg);
@@ -68,8 +67,7 @@ app.controller('myCtrl', function ($scope, $http) {
           $http.put('/bank/changeStatus', {
             bankID:  bankID,
             dataStatus: 'N',
-            // loginUser: getLoginUser()
-            loginUser: 'zhangqiang'
+            loginUser: getLoginUser()
           }).then(function successCallback(response) {
             if(response.data.err){
               bootbox.alert(response.data.msg);

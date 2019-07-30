@@ -3,10 +3,14 @@
     "host": "localhost",
     "port": 8080,
     "path": {
+      "login": "/api/admin/login",
       "bank": "/api/bank",
       "bankCodeExist": "/api/bank/exist",
       "changeStatus4Bank": "/api/bank/changeStatus",
-      "login": "/api/admin/login"
+      "bankBranch": "/api/bank/branch",
+      "bankBranchCodeExist": "/api/bank/branch/exist",
+      "changeStatus4BankBranch": "/api/bank/branch/changeStatus",
+      "chinaMapping": "/api/chinaMapping"
     }
   }
 }

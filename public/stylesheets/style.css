@@ -45,8 +45,11 @@
     color: #c51919
 }
 .form-actions select{
-    width: 120px;
+    width: 150px;
 }
 .table td{
     vertical-align: middle !important;
+}
+.table button{
+    width: 72px;
 }

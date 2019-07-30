@@ -1,0 +1,197 @@
+<div class="breadcrumbs" id="breadcrumbs">
+  <ul class="breadcrumb">
+    <li>
+      <i class="icon-home home-icon"></i>
+      <a href="/index">主页</a>
+    </li>
+    <li>
+      <a href="/bank/branch">支行管理</a>
+    </li>
+    <li class="active">支行信息编辑</li>
+  </ul>
+</div>
+
+<div class="page-content" ng-app="myApp" ng-controller="myCtrl">
+  <div class="page-header">
+    <h1>
+      支行管理
+      <small>
+        <i class="icon-double-angle-right"></i>
+        信息编辑
+      </small>
+    </h1>
+  </div>
+  <div class="row edit-content">
+    <div class="col-xs-12">
+      <div class="base-info">
+        <div class="info-title">
+          基本信息
+        </div>
+        <div class="detail-content">
+          <div class="detail-image">
+            <img ng-src="\{{model.bankBranchLogo}}" alt="" class="img-responsive">
+            <div class="space-4"></div>
+            <p>
+              <button class="btn btn-sm btn-purple" ng-click="onShowUploadLogo()">上传LOGO</button>
+            </p>
+          </div>
+          <div class="detail-info">
+            <div class="info-line"></div>
+            <div class="info-text">
+              <span>所属银行：</span>
+              <span ng-bind="model.selectedBank.bankName"></span>
+            </div>
+            <div class="info-line"></div>
+            <div class="info-text">
+              <span>支行编码：</span>
+              <span ng-bind="model.bankBranchCode"></span>
+            </div>
+            <div class="info-line"></div>
+            <div class="info-text">
+              <span>支行名称：</span>
+              <span ng-bind="model.bankBranchName"></span>
+            </div>
+            <div class="info-line"></div>
+            <div class="info-text">
+              <span>省份：</span>
+              <span ng-bind="model.selectedProvince.provinceName"></span>
+            </div>
+            <div class="info-line"></div>
+            <div class="info-text">
+              <span>城市：</span>
+              <span ng-bind="model.selectedCity.cityName"></span>
+            </div>
+            <div class="info-line"></div>
+            <div class="info-text">
+              <span>区县：</span>
+              <span ng-bind="model.selectedDistrict.districtName"></span>
+            </div>
+            <div class="info-line"></div>
+            <div class="info-text">
+              <span>详细地址：</span>
+              <span ng-bind="model.address"></span>
+            </div>
+            <div class="info-line"></div>
+            <div class="info-text">
+              <span>联系人：</span>
+              <span ng-bind="model.branchContact"></span>
+            </div>
+            <div class="info-line"></div>
+            <div class="info-text">
+              <span>电话：</span>
+              <span ng-bind="model.branchContactCellphone"></span>
+            </div>
+            <div class="info-line"></div>
+          </div>
+        </div>
+      </div>
+      <div class="edit-info">
+        <div class="info-title">
+          信息编辑
+        </div>
+        <div class="detail-content">
+          <form class="form-horizontal" name="myForm" novalidate>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">所属银行</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="model.selectedBank" ng-options="bank as bank.bankName for bank in model.bankList"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">支行编码</label>
+              <div class="col-sm-10" ng-class="{'check-invalid':model.bankBranchCodeInvalid}">
+                <input type="text" class="form-control" maxlength="12" name="bankBranchCode" ng-blur="onBankBranchCodeBlur()" ng-model="model.bankBranchCode" required placeholder="请输入支行编码">
+                <p ng-show="model.bankBranchCodeInvalid">该支行编码已存在！</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">支行名称</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control"  maxlength="20" name="bankBranchName" ng-model="model.bankBranchName" required placeholder="请输入支行名称">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">省份</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="model.selectedProvince" ng-options="province as province.provinceName for province in model.provinceList" ng-change="onProvinceChange()"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">城市</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="model.selectedCity" ng-options="city as city.cityName for city in model.cityList" ng-change="onCityChange()"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">区县</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="model.selectedDistrict" ng-options="district as district.districtName for district in model.districtList"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">详细地址</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control"  maxlength="20" name="address" ng-model="model.address" required placeholder="请输入详细地址">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">联系人</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control"  maxlength="15" name="branchContact" ng-model="model.branchContact" required placeholder="请输入联系人">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">电话</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control"  maxlength="11" name="branchContactCellphone" ng-model="model.branchContactCellphone" required placeholder="请输入联系人电话">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" class="btn btn-primary" ng-disabled="(myForm.bankBranchCode.$pristine && model.add)
+                                                                          || (myForm.bankBranchCode.$dirty && myForm.bankBranchCode.$invalid)
+                                                                          || (myForm.bankBranchName.$pristine && model.add)
+                                                                          || (myForm.bankBranchName.$dirty && myForm.bankBranchName.$invalid)
+                                                                          || model.selectedBank.bankCode == 0
+                                                                          || model.selectedProvince.provinceCode == 0
+                                                                          || model.selectedCity.cityCode == 0
+                                                                          || (myForm.address.$pristine && model.add)
+                                                                          || (myForm.address.$dirty && myForm.address.$invalid)
+                                                                          || (myForm.branchContact.$pristine && model.add)
+                                                                          || (myForm.branchContact.$dirty && myForm.branchContact.$invalid)
+                                                                          || (myForm.branchContactCellphone.$pristine && model.add)
+                                                                          || (myForm.branchContactCellphone.$dirty && myForm.branchContactCellphone.$invalid)
+                                                                          || model.bankBranchCodeInvalid"
+                        ng-click="onSubmit()">提交</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" tabindex="-1" role="dialog" id="modal-upload-logo">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">上传图片（*.jpg, *.jpeg, *.png）</h4>
+        </div>
+        <div class="alert alert-danger store-alert hidden">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <span></span>
+        </div>
+        <div class="modal-body">
+          <div id="file-upload-thumbnail" class="fileUploadContent"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  <input type="hidden" value="{{bankBranchID}}" id="hidden-bankBranchID">
+  <input type="hidden" ng-model="model.option">
+</div>
+
+<script src="/javascripts/view/bankBranchEdit.js"></script>

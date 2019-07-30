@@ -14,29 +14,27 @@ function setAlertBell() {
 }
 
 function setActiveNav() {
-  let pathname = window.location.pathname;
-  if(pathname.indexOf('bank') >= 0){
-    pathname = '/bank';
-  }
-
-  if(pathname.indexOf('advertise') >= 0){
-    pathname = '/advertise';
-  }
-
-  if(pathname.indexOf('user') >= 0){
-    pathname = '/user';
-  }
-
-  if((pathname.indexOf('item') >= 0 && pathname.indexOf('itemBatch') === -1)
-      || pathname.indexOf('detail') >= 0
-      || pathname.indexOf('detailView') >= 0){
-    pathname = '/item';
-  }
+  let pathname = getActivePath();
   $('.nav-list li.active').removeClass('active');
   $('.nav-list li.open').removeClass('open').removeClass('active');
-  var element = $('.nav-list a[href="' + pathname + '"]');
+  let element = $('.nav-list a[href="' + pathname + '"]');
   $(element).parent().addClass('active');
   $(element).parent().parent().parent().addClass('open active');
+}
+
+function getActivePath() {
+  let pathname = window.location.pathname;
+  if(pathname.indexOf('bank/branch') >= 0){
+    return '/bank/branch';
+  }
+  if(pathname.indexOf('bank') >= 0){
+    return '/bank';
+  }
+  if(pathname.indexOf('index') >= 0){
+    return '/index';
+  }
+
+  return '';
 }
 
 function alertMessage(msg) {
