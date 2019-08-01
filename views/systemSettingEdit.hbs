@@ -1,0 +1,94 @@
+<div class="breadcrumbs" id="breadcrumbs">
+  <ul class="breadcrumb">
+    <li>
+      <i class="icon-home home-icon"></i>
+      <a href="/index">主页</a>
+    </li>
+    <li>
+      <a href="/systemSetting">系统服务管理</a>
+    </li>
+    <li class="active">系统服务编辑</li>
+  </ul>
+</div>
+
+<div class="page-content" ng-app="myApp" ng-controller="myCtrl">
+  <div class="page-header">
+    <h1>
+      系统服务管理
+      <small>
+        <i class="icon-double-angle-right"></i>
+        系统服务编辑
+      </small>
+    </h1>
+  </div>
+  <div class="row edit-content">
+    <div class="col-xs-12">
+      <div class="base-info">
+        <div class="info-title">
+          基本信息
+        </div>
+        <div class="detail-content">
+          <div class="detail-info">
+            <div class="info-text">
+              <span>软件名称：</span>
+              <span ng-bind="model.systemName"></span>
+            </div>
+            <div class="info-line"></div>
+            <div class="info-text">
+              <span>软件价格：</span>
+              <span ng-bind="model.systemPriceShow"></span>
+            </div>
+            <div class="info-line"></div>
+            <div class="info-text">
+              <span>年服务费：</span>
+              <span ng-bind="model.servicePriceShow"></span>
+            </div>
+            <div class="info-line"></div>
+          </div>
+        </div>
+      </div>
+      <div class="edit-info">
+        <div class="info-title">
+          信息编辑
+        </div>
+        <div class="detail-content">
+          <form class="form-horizontal" name="myForm" novalidate>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">软件名称</label>
+              <div class="col-sm-10" ng-class="{'check-invalid':model.bankCodeInvalid}">
+                <input type="text" class="form-control" maxlength="15" name="systemName" ng-model="model.systemName" required autofocus placeholder="请输入软件名称">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">软件价格(¥)</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control"  maxlength="9" name="systemPrice" ng-model="model.systemPrice" ng-keydown="checkIsMoney($event)" ng-blur="onSystemPriceBlur()" required placeholder="请输入软件价格,小数点后保留两位">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">年服务费(¥)</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control"  maxlength="9" name="servicePrice" ng-model="model.servicePrice" ng-keydown="checkIsMoney($event)" ng-blur="onServicePriceBlur()" required placeholder="请输入年服务费,小数点后保留两位">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" class="btn btn-primary" ng-disabled="(myForm.systemName.$pristine && model.add)
+                                                                          || (myForm.systemName.$dirty && myForm.systemName.$invalid)
+                                                                          || (myForm.systemPrice.$pristine && model.add)
+                                                                          || (myForm.systemPrice.$dirty && myForm.systemPrice.$invalid)
+                                                                          || (myForm.servicePrice.$pristine && model.add)
+                                                                          || (myForm.servicePrice.$dirty && myForm.servicePrice.$invalid)"
+                        ng-click="onSubmit()">提交</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input type="hidden" value="{{systemID}}" id="hidden-systemID">
+  <input type="hidden" ng-model="model.option">
+</div>
+
+<script src="/javascripts/view/systemSettingEdit.js"></script>

@@ -33,7 +33,9 @@ function getActivePath() {
   if(pathname.indexOf('index') >= 0){
     return '/index';
   }
-
+  if(pathname.indexOf('systemSetting') >= 0){
+    return '/systemSetting';
+  }
   return '';
 }
 

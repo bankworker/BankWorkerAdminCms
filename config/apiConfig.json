@@ -10,7 +10,10 @@
       "bankBranch": "/api/bank/branch",
       "bankBranchCodeExist": "/api/bank/branch/exist",
       "changeStatus4BankBranch": "/api/bank/branch/changeStatus",
-      "chinaMapping": "/api/chinaMapping"
+      "chinaMapping": "/api/chinaMapping",
+      "admin": "/api/admin",
+      "systemSetting": "/api/systemSetting"
+
     }
   }
 }
