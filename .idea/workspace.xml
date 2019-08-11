@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06faae3a-23e6-4423-99e3-2c6016bdb987" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/javascripts/view/systemSetting.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/javascripts/view/systemSettingEdit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/systemSetting.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/systemSettingEdit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/systemSetting.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/systemSettingEdit.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/javascripts/view/systemAccount.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/javascripts/view/systemAccountEdit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/systemAccount.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/systemAccountEdit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/systemAccount.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/systemAccountEdit.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/apiConfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/apiConfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/javascripts/view/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/view/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/bank.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/bank.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/common.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layout.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout.hbs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -28,40 +28,63 @@
     <favorites_list name="BankWorkerAdminCms" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.36951673">
+    <splitter split-orientation="horizontal" split-proportion="0.34612748">
       <split-first>
         <leaf>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/views/systemSettingEdit.hbs">
+            <entry file="file://$PROJECT_DIR$/routes/systemAccount.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="459">
-                  <caret line="89" column="63" selection-start-line="89" selection-start-column="55" selection-end-line="89" selection-end-column="63" />
+                <state relative-caret-position="544">
+                  <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/views/systemAccount.hbs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="201">
+                  <caret line="71" column="61" selection-start-line="71" selection-start-column="61" selection-end-line="71" selection-end-column="61" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/javascripts/view/systemAccount.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="51">
+                  <caret line="3" column="50" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="50" />
+                  <folding>
+                    <element signature="e#257#1071#0" />
+                    <element signature="e#1126#1941#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/routes/systemAccountEdit.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="221">
+                  <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/routes/systemSettingEdit.js">
+            <entry file="file://$PROJECT_DIR$/views/systemAccountEdit.hbs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="171">
-                  <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+                <state relative-caret-position="423">
+                  <caret line="99" column="93" lean-forward="true" selection-start-line="99" selection-start-column="93" selection-end-line="99" selection-end-column="93" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/javascripts/view/systemSettingEdit.js">
+            <entry file="file://$PROJECT_DIR$/public/javascripts/view/systemAccountEdit.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-74">
-                  <caret line="4" column="12" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="12" />
-                  <folding>
-                    <element signature="e#236#390#0" />
-                    <element signature="e#709#1535#0" />
-                    <element signature="e#2059#2547#0" />
-                    <element signature="e#2537#2547#0" />
-                    <element signature="e#2447#2985#0" />
-                    <element signature="e#3026#3564#0" />
-                  </folding>
+                <state relative-caret-position="1">
+                  <caret line="14" column="11" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="11" />
                 </state>
               </provider>
             </entry>
@@ -70,18 +93,57 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/public/javascripts/view/systemSettingEdit.js">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/javascripts/view/systemAccountEdit.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-136">
-                  <caret line="30" selection-start-line="30" selection-end-line="30" />
+                <state relative-caret-position="261">
+                  <caret line="263" lean-forward="true" selection-start-line="263" selection-end-line="263" />
                   <folding>
-                    <element signature="e#1614#2067#0" />
-                    <element signature="e#2112#2600#0" />
-                    <element signature="e#2641#3309#0" />
-                    <element signature="e#3351#3608#0" />
-                    <element signature="e#3651#3914#0" />
-                    <element signature="e#3949#4060#0" />
+                    <element signature="e#603#896#0" />
+                    <element signature="e#542#1354#0" />
+                    <element signature="e#1721#2371#0" />
+                    <element signature="e#459#469#0" />
+                    <element signature="e#1147#1488#0" />
+                    <element signature="e#450#1420#0" />
+                    <element signature="e#5054#5064#0" />
+                    <element signature="e#1454#1943#0" />
+                    <element signature="e#1980#2508#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/views/layout.hbs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="38">
+                  <caret line="147" column="34" lean-forward="true" selection-start-line="147" selection-start-column="34" selection-end-line="147" selection-end-column="34" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/routes/common.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="383">
+                  <caret line="88" column="65" selection-start-line="88" selection-start-column="55" selection-end-line="88" selection-end-column="65" />
+                  <folding>
+                    <element signature="e#781#1183#0" />
+                    <element signature="e#1239#1658#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/javascripts/view/bankBranchEdit.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="333">
+                  <caret line="218" column="7" selection-start-line="218" selection-start-column="6" selection-end-line="218" selection-end-column="7" />
+                  <folding>
+                    <element signature="e#4325#5491#0" />
+                    <element signature="e#5532#5825#0" />
+                    <element signature="e#7883#8759#0" />
                   </folding>
                 </state>
               </provider>
@@ -121,6 +183,10 @@
       <find>bankBranchID</find>
       <find>selectedBank</find>
       <find>currentBankCode</find>
+      <find>changeStatus4SystemAccount</find>
+      <find>ng-re</find>
+      <find>loadCity</find>
+      <find>onBankChange</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/public/upload/bank</dir>
@@ -148,10 +214,8 @@
         <option value="$PROJECT_DIR$/public/javascripts/view/login.js" />
         <option value="$PROJECT_DIR$/public/javascripts/view/bankEdit.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/ace/ace.min.css" />
-        <option value="$PROJECT_DIR$/routes/common.js" />
         <option value="$PROJECT_DIR$/views/bankEdit.hbs" />
         <option value="$PROJECT_DIR$/routes/bankEdit.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/view/bankBranchEdit.js" />
         <option value="$PROJECT_DIR$/routes/bankBranchEdit.js" />
         <option value="$PROJECT_DIR$/views/bankBranchEdit.hbs" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
@@ -160,16 +224,24 @@
         <option value="$PROJECT_DIR$/public/javascripts/view/bankBranch.js" />
         <option value="$PROJECT_DIR$/views/bankBranch.hbs" />
         <option value="$PROJECT_DIR$/views/bank.hbs" />
-        <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/views/layout.hbs" />
-        <option value="$PROJECT_DIR$/public/javascripts/view/common.js" />
-        <option value="$PROJECT_DIR$/config/apiConfig.json" />
         <option value="$PROJECT_DIR$/routes/systemSettingEdit.js" />
         <option value="$PROJECT_DIR$/public/javascripts/view/systemSetting.js" />
         <option value="$PROJECT_DIR$/views/systemSetting.hbs" />
         <option value="$PROJECT_DIR$/routes/systemSetting.js" />
         <option value="$PROJECT_DIR$/views/systemSettingEdit.hbs" />
         <option value="$PROJECT_DIR$/public/javascripts/view/systemSettingEdit.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/routes/systemAccount.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/view/common.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/view/bankBranchEdit.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/view/systemAccount.js" />
+        <option value="$PROJECT_DIR$/routes/systemAccountEdit.js" />
+        <option value="$PROJECT_DIR$/views/systemAccount.hbs" />
+        <option value="$PROJECT_DIR$/config/apiConfig.json" />
+        <option value="$PROJECT_DIR$/routes/common.js" />
+        <option value="$PROJECT_DIR$/views/systemAccountEdit.hbs" />
+        <option value="$PROJECT_DIR$/public/javascripts/view/systemAccountEdit.js" />
+        <option value="$PROJECT_DIR$/views/layout.hbs" />
       </list>
     </option>
   </component>
@@ -215,12 +287,6 @@
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="javascripts" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BankWorkerAdminCms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BankWorkerAdminCms" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="upload" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BankWorkerAdminCms" type="b2602c69:ProjectViewProjectNode" />
@@ -296,7 +362,7 @@
       <workItem from="1563457636578" duration="16255000" />
       <workItem from="1563870421093" duration="5928000" />
       <workItem from="1563961015268" duration="12571000" />
-      <workItem from="1564107119097" duration="39780000" />
+      <workItem from="1564107119097" duration="57377000" />
     </task>
     <task id="LOCAL-00001" summary="银行管理功能完成">
       <created>1564038288670</created>
@@ -319,18 +385,25 @@
       <option name="project" value="LOCAL" />
       <updated>1564500302309</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="系统服务管理完成">
+      <created>1564641968240</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1564641968240</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74534000" />
+    <option name="totallyTimeSpent" value="92131000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="947" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.5005848" side_tool="true" weight="0.159132" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49941522" visible="true" weight="0.18927065" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49941522" weight="0.2989753" />
       <window_info id="Structure" order="2" sideWeight="0.5005848" side_tool="true" weight="0.159132" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
@@ -339,7 +412,7 @@
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
       <window_info anchor="bottom" id="Run" order="6" weight="0.32982457" />
-      <window_info active="true" anchor="bottom" id="Debug" order="7" visible="true" weight="0.20935673" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.20935673" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -358,39 +431,10 @@
     <MESSAGE value="银行管理功能完成" />
     <MESSAGE value="1. 实现登陆功能&#10;2. 修改提交银行信息的登陆用户" />
     <MESSAGE value="支行信息管理完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="支行信息管理完成" />
+    <MESSAGE value="系统服务管理完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="系统服务管理完成" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/bootbox/bootbox.locales.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../SWS/SourceCode/SwsWebsite/public/javascripts/view/news.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/fileUpload/fileUpload.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4772">
-          <caret line="57" column="8" lean-forward="true" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/view/uploadutils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/www">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/constant/dataStatusConstant.json" />
     <entry file="file://$PROJECT_DIR$/config/constantConfig.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -511,31 +555,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="40" column="16" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/view/bankBranchEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="90" column="9" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
-          <folding>
-            <element signature="e#411#676#0" />
-            <element signature="e#2380#3193#0" />
-            <element signature="e#3230#4058#0" />
-            <element signature="e#4390#4585#0" />
-            <element signature="e#1569#2022#0" />
-            <element signature="e#2059#2547#0" />
-            <element signature="e#2590#2638#0" />
-            <element signature="e#2677#3215#0" />
-            <element signature="e#3250#3479#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="571">
@@ -569,16 +588,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/bank.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-end-line="60" />
-          <folding>
-            <element signature="e#1050#1507#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/bankBranchEdit.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="711">
@@ -586,21 +595,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/layout.hbs">
+    <entry file="file://$PROJECT_DIR$/views/bankEdit.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="195" column="26" selection-start-line="195" selection-start-column="20" selection-end-line="195" selection-end-column="26" />
+        <state relative-caret-position="422">
+          <caret line="61" column="113" selection-start-line="61" selection-start-column="87" selection-end-line="61" selection-end-column="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/bank.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding>
+            <element signature="e#1050#1507#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/bankEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+          <folding>
+            <element signature="e#445#724#0" />
+            <element signature="e#784#1201#0" />
+            <element signature="e#1253#1669#0" />
+            <element signature="e#1716#2190#0" />
+            <element signature="e#2236#2742#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/systemSetting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="33" column="3" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/systemSettingEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="12" column="30" lean-forward="true" selection-end-line="77" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/view/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="20" lean-forward="true" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-          <folding>
-            <element signature="e#302#309#1" expanded="true" />
-            <element signature="e#302#309#1" expanded="true" />
-          </folding>
+        <state relative-caret-position="-2023">
+          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/systemSetting.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="118" lean-forward="true" selection-end-line="121" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/systemSettingEdit.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="25" lean-forward="true" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -621,56 +678,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/apiConfig.json">
+    <entry file="file://$PROJECT_DIR$/views/bankBranch.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/bankEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="110" column="3" lean-forward="true" selection-start-line="110" selection-start-column="3" selection-end-line="110" selection-end-column="3" />
-          <folding>
-            <element signature="e#445#724#0" />
-            <element signature="e#784#1201#0" />
-            <element signature="e#1253#1669#0" />
-            <element signature="e#1716#2190#0" />
-            <element signature="e#2236#2742#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="48" column="28" lean-forward="true" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/view/bank.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-          <folding>
-            <element signature="e#510#1324#0" />
-            <element signature="e#1376#2191#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/systemSetting.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/systemSetting.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="33" column="3" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="3" />
+        <state relative-caret-position="439">
+          <caret line="30" column="66" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -681,60 +692,136 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/view/systemSettingEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/systemAccount.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/bank.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-625">
-          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        <state relative-caret-position="23">
+          <caret line="87" column="39" selection-start-line="87" selection-start-column="25" selection-end-line="87" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/bankBranch.hbs">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/view/bank.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-859">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="391">
+          <caret line="85" column="3" lean-forward="true" selection-end-line="85" selection-end-column="3" />
+          <folding>
+            <element signature="e#510#1324#0" />
+            <element signature="e#1376#2191#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/bankEdit.hbs">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/view/systemAccount.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="61" column="113" selection-start-line="61" selection-start-column="87" selection-end-line="61" selection-end-column="113" />
+        <state relative-caret-position="51">
+          <caret line="3" column="50" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="50" />
+          <folding>
+            <element signature="e#257#1071#0" />
+            <element signature="e#1126#1941#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="50" column="23" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/systemAccountEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/systemAccount.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="71" column="61" selection-start-line="71" selection-start-column="61" selection-end-line="71" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/bankBranchEdit.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="971">
-          <caret line="139" column="70" selection-start-line="139" selection-start-column="70" selection-end-line="139" selection-end-column="70" />
+        <state relative-caret-position="386">
+          <caret line="102" column="115" selection-start-line="102" selection-start-column="115" selection-end-line="102" selection-end-column="115" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/systemSettingEdit.hbs">
+    <entry file="file://$PROJECT_DIR$/config/apiConfig.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="89" column="63" selection-start-line="89" selection-start-column="55" selection-end-line="89" selection-end-column="63" />
+        <state relative-caret-position="170">
+          <caret line="10" column="25" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/systemSettingEdit.js">
+    <entry file="file://$PROJECT_DIR$/routes/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/view/systemSettingEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-136">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="383">
+          <caret line="88" column="65" selection-start-line="88" selection-start-column="55" selection-end-line="88" selection-end-column="65" />
           <folding>
-            <element signature="e#1614#2067#0" />
-            <element signature="e#2112#2600#0" />
-            <element signature="e#2641#3309#0" />
-            <element signature="e#3351#3608#0" />
-            <element signature="e#3651#3914#0" />
-            <element signature="e#3949#4060#0" />
+            <element signature="e#781#1183#0" />
+            <element signature="e#1239#1658#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/view/bankBranchEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="218" column="7" selection-start-line="218" selection-start-column="6" selection-end-line="218" selection-end-column="7" />
+          <folding>
+            <element signature="e#4325#5491#0" />
+            <element signature="e#5532#5825#0" />
+            <element signature="e#7883#8759#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/systemAccountEdit.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="99" column="93" lean-forward="true" selection-start-line="99" selection-start-column="93" selection-end-line="99" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/view/systemAccountEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="263" lean-forward="true" selection-start-line="263" selection-end-line="263" />
+          <folding>
+            <element signature="e#603#896#0" />
+            <element signature="e#542#1354#0" />
+            <element signature="e#1721#2371#0" />
+            <element signature="e#459#469#0" />
+            <element signature="e#1147#1488#0" />
+            <element signature="e#450#1420#0" />
+            <element signature="e#5054#5064#0" />
+            <element signature="e#1454#1943#0" />
+            <element signature="e#1980#2508#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layout.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="147" column="34" lean-forward="true" selection-start-line="147" selection-start-column="34" selection-end-line="147" selection-end-column="34" />
         </state>
       </provider>
     </entry>

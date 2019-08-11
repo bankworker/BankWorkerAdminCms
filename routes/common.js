@@ -44,4 +44,64 @@ router.get('/bankList', function (req, res, next) {
   });
 });
 
+router.get('/branchList', function (req, res, next) {
+  let service = new commonService.commonInvoke('bankBranch');
+  let parameter = req.query.bankCode;
+
+  service.get(parameter, function (result) {
+    if(result.err){
+      res.json({
+        err: true,
+        msg: result.msg
+      });
+    }else{
+      res.json({
+        err: !result.content.result,
+        msg: result.content.responseMessage,
+        branchList: result.content.responseData
+      });
+    }
+  });
+});
+
+router.get('/systemList', function (req, res, next) {
+  let service = new commonService.commonInvoke('systemSetting');
+  let parameter = '1/999/N';
+
+  service.get(parameter, function (result) {
+    if(result.err){
+      res.json({
+        err: true,
+        msg: result.msg
+      });
+    }else{
+      res.json({
+        err: !result.content.result,
+        msg: result.content.responseMessage,
+        systemList: result.content.responseData
+      });
+    }
+  });
+});
+
+router.get('/bankBranchWithCode', function (req, res, next) {
+  let service = new commonService.commonInvoke('bankBranchWithCode');
+  let parameter = req.query.bankCode + '/' + req.query.branchCode;
+
+  service.get(parameter, function (result) {
+    if(result.err){
+      res.json({
+        err: true,
+        msg: result.msg
+      });
+    }else{
+      res.json({
+        err: !result.content.result,
+        msg: result.content.responseMessage,
+        branchInfo: result.content.responseData
+      });
+    }
+  });
+});
+
 module.exports = router;

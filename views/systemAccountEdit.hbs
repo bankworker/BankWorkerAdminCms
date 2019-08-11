@@ -1,0 +1,115 @@
+<div class="breadcrumbs" id="breadcrumbs">
+  <ul class="breadcrumb">
+    <li>
+      <i class="icon-home home-icon"></i>
+      <a href="/index">主页</a>
+    </li>
+    <li>
+      <a href="/systemSetting">系统服务管理</a>
+    </li>
+    <li class="active">系统服务编辑</li>
+  </ul>
+</div>
+
+<div class="page-content" ng-app="myApp" ng-controller="myCtrl">
+  <div class="page-header">
+    <h1>
+      系统服务管理
+      <small>
+        <i class="icon-double-angle-right"></i>
+        系统服务编辑
+      </small>
+    </h1>
+  </div>
+  <div class="row edit-content">
+    <div class="col-xs-12">
+      <div class="base-info">
+        <div class="info-title">
+          基本信息
+        </div>
+        <div class="detail-content">
+          <div class="detail-info">
+            <div class="info-text">
+              <span>银行：</span>
+              <span ng-bind="model.selectedBank.bankName"></span>
+            </div>
+            <div class="info-line"></div>
+            <div class="info-text">
+              <span>支行：</span>
+              <span ng-bind="model.selectedBranch.branchName"></span>
+            </div>
+            <div class="info-line"></div>
+            <div class="info-text">
+              <span>软件系统：</span>
+              <span ng-bind="model.displaySelectedSystem"></span>
+            </div>
+            <div class="info-line"></div>
+            <div class="info-text">
+              <span>账号：</span>
+              <span ng-bind="model.account"></span>
+            </div>
+            <div class="info-line"></div>
+          </div>
+        </div>
+      </div>
+      <div class="edit-info">
+        <div class="info-title">
+          信息编辑
+        </div>
+        <div class="detail-content">
+          <form class="form-horizontal" name="myForm" novalidate>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">银行</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="model.selectedBank" ng-options="bank as bank.bankName for bank in model.bankList" ng-change="onBankChange()"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">支行</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="model.selectedBranch" ng-options="branch as branch.branchName for branch in model.branchList" ng-change="onBranchChange()"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">软件系统</label>
+              <div class="col-sm-10">
+                <div class="checkbox" ng-repeat="system in model.systemList" >
+                  <label>
+                    <input type="checkbox" ng-click="onChangeSystem(system)" >
+                    <span ng-bind="system.systemName"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">账号</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control"  maxlength="15" name="account" ng-model="model.account" required readonly placeholder="支行编码">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">密码</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control"  maxlength="9" name="password" ng-model="model.password" required readonly placeholder="支行联系人手机号码后六位">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" class="btn btn-primary" ng-disabled=" (myForm.account.$dirty && myForm.account.$invalid)
+                                                                          || (myForm.password.$dirty && myForm.password.$invalid)
+                                                                          || model.selectedSystemList.length == 0
+                                                                          || model.selectedBank.bankCode == 0
+                                                                          || model.selectedBranch.branchCode == 0"
+                        ng-click="onSubmit()">提交</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input type="hidden" value="{{accountID}}" id="hidden-accountID">
+  <input type="hidden" ng-model="model.option">
+</div>
+
+<script src="/javascripts/view/systemAccountEdit.js"></script>

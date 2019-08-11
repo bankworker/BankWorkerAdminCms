@@ -8,12 +8,15 @@
       "bankCodeExist": "/api/bank/exist",
       "changeStatus4Bank": "/api/bank/changeStatus",
       "bankBranch": "/api/bank/branch",
+      "bankBranchWithCode": "/api/bank/branch/code",
       "bankBranchCodeExist": "/api/bank/branch/exist",
       "changeStatus4BankBranch": "/api/bank/branch/changeStatus",
       "chinaMapping": "/api/chinaMapping",
       "admin": "/api/admin",
-      "systemSetting": "/api/systemSetting"
-
+      "systemSetting": "/api/system/setting",
+      "systemAccount": "/api/system/account",
+      "systemAccountExist": "/api/system/account/exist",
+      "changeStatus4SystemAccount": "/api/system/account/changeStatus"
     }
   }
 }
