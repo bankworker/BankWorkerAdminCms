@@ -5,9 +5,7 @@ app.controller('myCtrl', function ($scope, $http) {
     systemID: '',
     systemName: '',
     systemPrice: '',
-    servicePrice: '',
     systemPriceShow: '',
-    servicePriceShow: '',
     add: true
   };
 
@@ -45,9 +43,7 @@ app.controller('myCtrl', function ($scope, $http) {
       $scope.model.systemID = response.data.systemInfo.systemID;
       $scope.model.systemName = response.data.systemInfo.systemName;
       $scope.model.systemPrice = response.data.systemInfo.systemPrice;
-      $scope.model.servicePrice = response.data.systemInfo.servicePrice;
       $scope.model.systemPriceShow = '¥' + response.data.systemInfo.systemPrice;
-      $scope.model.servicePriceShow = '¥' + response.data.systemInfo.servicePrice;
       $scope.model.add = false;
     }, function errorCallback(response) {
       bootbox.alert('网络异常，请检查网络设置');
@@ -58,7 +54,6 @@ app.controller('myCtrl', function ($scope, $http) {
     $http.post('/systemSetting/edit', {
       systemName: $scope.model.systemName,
       systemPrice: $scope.model.systemPrice,
-      servicePrice: $scope.model.servicePrice,
       loginUser: getLoginUser()
     }).then(function successCallback(response) {
       if(response.data.err){
@@ -76,7 +71,6 @@ app.controller('myCtrl', function ($scope, $http) {
       systemID:  $scope.model.systemID,
       systemName: $scope.model.systemName,
       systemPrice: $scope.model.systemPrice,
-      servicePrice: $scope.model.servicePrice,
       loginUser: getLoginUser()
     }).then(function successCallback(response) {
       if(response.data.err){
@@ -119,15 +113,6 @@ app.controller('myCtrl', function ($scope, $http) {
     }
     $scope.model.systemPrice = $scope.formatMoney($scope.model.systemPrice);
     $scope.model.systemPriceShow = '¥' + $scope.model.systemPrice;
-  };
-
-  $scope.onServicePriceBlur = function(){
-    if($scope.model.servicePrice === ''){
-      $scope.model.servicePriceShow = '';
-      return false;
-    }
-    $scope.model.servicePrice = $scope.formatMoney($scope.model.servicePrice);
-    $scope.model.servicePriceShow = '¥' + $scope.model.servicePrice;
   };
 
   $scope.onSubmit = function () {

@@ -18,8 +18,8 @@ app.controller('myCtrl', function ($scope, $http) {
         bootbox.alert('您输入的用户名密码不存在！');
         return false;
       }
-      //记录Cookie
-      setCookie('bwa.user', JSON.stringify(response.data.adminInfo));
+      //记录C ookie
+      setCookie('bwaLoginUser', JSON.stringify(response.data.adminInfo));
       location.href = '/index';
     }, function errorCallback(response) {
       bootbox.alert('网络异常，请检查网络设置');

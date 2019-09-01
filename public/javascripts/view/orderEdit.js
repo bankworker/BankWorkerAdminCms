@@ -2,27 +2,47 @@ let app = angular.module('myApp', []);
 
 app.controller('myCtrl', function ($scope, $http) {
   $scope.model = {
-    accountID: '',
+    orderID: '',
+
     selectedBank: null,
     bankList: [{bankCode: 0, bankName: '全部'}],
     currentBankCode: 0,
+
     selectedBranch: null,
     branchList: [{branchCode: 0, branchName: '全部'}],
     currentBranchCode: 0,
+
     systemList: [],
     selectedSystemList: [],
+    selectedSystemID: '',
+
+    orderType: '',
+    orderTypeText: '',
+
+    serviceList: [],
+    selectedService: null,
+
     displaySelectedSystem: '',
-    account: '',
-    password: '',
+    displaySelectedService: '',
+
+    originalTotalSystemPrice: 0,
+    originalTotalServicePrice: 0,
+
+    orderDiscount: 1,
+    paymentPrice: 0,
+    originalPrice: 0,
+    formatPaymentPrice: '¥0.00',
+    formatOriginalPrice: '¥0.00',
+    isShowServiceList: false,
     add: true
   };
-
 
   $scope.initPage = function () {
     $scope.setDefaultOption();
     $scope.loadBank();
-    $scope.loadSystemService();
-    $scope.loadData();
+    $scope.loadSystem();
+    $scope.loadService();
+    // $scope.loadData();
   };
 
   $scope.setDefaultOption = function(){
@@ -97,7 +117,7 @@ app.controller('myCtrl', function ($scope, $http) {
     });
   };
 
-  $scope.loadSystemService = function(){
+  $scope.loadSystem = function(){
     $http.get('/common/systemList').then(function successCallback (response) {
       if(response.data.err){
         bootbox.alert(response.data.msg);
@@ -106,10 +126,11 @@ app.controller('myCtrl', function ($scope, $http) {
       if(response.data.systemList === null){
         return false;
       }
-      angular.forEach(response.data.systemList, function (bank) {
+      angular.forEach(response.data.systemList, function (system) {
         $scope.model.systemList.push({
-          systemID: bank.systemID,
-          systemName: bank.systemName
+          systemID: system.systemID,
+          systemName: system.systemName,
+          systemPrice: '¥' + system.systemPrice.toFixed(2),
         });
       });
     }, function errorCallback(response) {
@@ -117,52 +138,124 @@ app.controller('myCtrl', function ($scope, $http) {
     });
   };
 
-  $scope.onBankChange = function() {
-    $scope.loadBranch();
-  };
-
-  $scope.onBranchChange = function() {
-    if($scope.model.selectedBranch.branchCode === 0){
-      $scope.model.account = '';
-      $scope.model.password = '';
-      return false;
-    }
-    $http.get('/common/bankBranchWithCode?bankCode=' + $scope.model.selectedBank.bankCode + '&branchCode=' + $scope.model.selectedBranch.branchCode).then(function successCallback (response) {
+  $scope.loadService = function(){
+    $http.get('/common/serviceList').then(function successCallback (response) {
       if(response.data.err){
         bootbox.alert(response.data.msg);
         return false;
       }
-      if(response.data.branchInfo === null){
+      if(response.data.serviceList === null){
         return false;
       }
-
-      $scope.model.account = response.data.branchInfo.branchCode;
-      $scope.model.password = response.data.branchInfo.branchContactCellphone.length > 6 ? response.data.branchInfo.branchContactCellphone.substr(5) : response.data.branchInfo.branchContactCellphone;
+      angular.forEach(response.data.serviceList, function (system) {
+        $scope.model.serviceList.push({
+          serviceID: system.serviceID,
+          serviceYear: system.serviceYear + '年',
+          servicePrice: '¥' + system.servicePrice.toFixed(2),
+        });
+      });
     }, function errorCallback(response) {
       bootbox.alert('网络异常，请检查网络设置');
     });
   };
 
-  $scope.onChangeSystem = function(changedSystem){
+  $scope.onBankChange = function(){
+    $scope.loadBranch();
+  };
+
+  $scope.onSystemChange = function(system){
+    let systemIDList = [];
     let systemNameList = [];
-    if($scope.model.selectedSystemList.indexOf(changedSystem) === -1){
-      $scope.model.selectedSystemList.push(changedSystem);
+    if($scope.model.selectedSystemList.indexOf(system) === -1){
+      $scope.model.selectedSystemList.push(system);
     }else{
-      $scope.model.selectedSystemList.splice($scope.model.selectedSystemList.indexOf(changedSystem), 1);
+      $scope.model.selectedSystemList.splice($scope.model.selectedSystemList.indexOf(system), 1);
     }
 
     angular.forEach($scope.model.selectedSystemList, function (system) {
+      systemIDList.push(system.systemID);
       systemNameList.push(system.systemName);
     });
+    $scope.model.selectedSystemID = systemIDList.join(',');
     $scope.model.displaySelectedSystem = systemNameList.join('|');
+
+    $scope.calculationOrderAmount('system');
+
+  };
+
+  $scope.onServiceChange = function(service){
+    $scope.model.selectedService = service;
+    if($scope.model.orderTypeText.indexOf('（') >= 0){
+      $scope.model.orderTypeText = $scope.model.orderTypeText.substr(0, $scope.model.orderTypeText.indexOf('（'));
+    }
+    $scope.model.orderTypeText += '（' + service.serviceYear + '）';
+    $scope.calculationOrderAmount('service');
+  };
+
+  $scope.onOrderTypeChange = function(orderType){
+    switch (orderType) {
+      case 'N':
+        $scope.model.orderType = orderType;
+        $scope.model.orderTypeText = '仅软件系统';
+        $scope.model.isShowServiceList = false;
+        $scope.model.selectedService = null;
+        $("input[type='radio'][name='serviceYear']").prop("checked",false);
+        $scope.calculationOrderAmount('service');
+        break;
+      case 'S':
+        $scope.model.orderType = orderType;
+        $scope.model.orderTypeText = '软件系统+服务器托管';
+        $scope.model.isShowServiceList = true;
+        break;
+    }
+  };
+
+  $scope.calculationOrderAmount = function(priceFlag){
+    //计算软件系统费用
+    if(priceFlag === 'system'){
+      $scope.model.originalTotalSystemPrice = 0;
+      angular.forEach($scope.model.selectedSystemList, function (system) {
+        $scope.model.originalTotalSystemPrice += Number(system.systemPrice.substr(1));
+      });
+    }
+
+    //计算服务器托管费用
+    if(priceFlag === 'service'){
+      $scope.model.originalTotalServicePrice = $scope.model.selectedService === null ?
+          $scope.model.originalTotalServicePrice = 0 :
+          Number($scope.model.selectedService.servicePrice.substr(1));
+    }
+
+    //计算原始价格
+    $scope.model.originalPrice = $scope.model.originalTotalSystemPrice + $scope.model.originalTotalServicePrice;
+
+    //计算折扣后的价格
+    let purchaseCount = $scope.model.selectedSystemList.length;
+
+    switch (purchaseCount) {
+      case 1:
+        $scope.model.orderDiscount = 1;
+        break;
+      case 2:
+        $scope.model.orderDiscount = 0.95;
+        break;
+      case 3:
+        $scope.model.orderDiscount = 0.85;
+        break;
+    }
+    $scope.model.paymentPrice = $scope.model.originalTotalSystemPrice * $scope.model.orderDiscount + $scope.model.originalTotalServicePrice;
+
+    //格式化显示的价格
+    $scope.model.formatPaymentPrice = '¥' + $scope.model.paymentPrice.toFixed(2);
+    $scope.model.formatOriginalPrice = '¥' + $scope.model.originalPrice.toFixed(2);
   };
 
   $scope.loadData = function(){
-    let accountID = document.getElementById('hidden-accountID').value;
-    if(accountID === ''){
+    let orderID = document.getElementById('hidden-orderID').value;
+    if(orderID === ''){
       return false;
     }
-    $http.get('/systemAccount/edit/detail?accountID=' + accountID).then(function successCallback (response) {
+    $http.get('/order/edit/detail?orderID=' + orderID).then(function successCallback (response) {
       if(response.data.err){
         bootbox.alert(response.data.msg);
         return false;
@@ -212,20 +305,22 @@ app.controller('myCtrl', function ($scope, $http) {
   };
 
   $scope.addData = function () {
-    let systemIdList = $scope.getSelectedSystemId();
-    $http.post('/systemAccount/edit', {
+    $http.post('/order/edit', {
       bankCode: $scope.model.selectedBank.bankCode,
       branchCode: $scope.model.selectedBranch.branchCode,
-      systemMultipleID: systemIdList.join(','),
-      account: $scope.model.account,
-      password: $scope.model.password,
+      orderType: $scope.model.orderType,
+      originalAmount: $scope.model.originalPrice,
+      discount: $scope.model.orderDiscount,
+      orderAmount: $scope.model.paymentPrice,
+      serviceYear: $scope.model.selectedService.serviceYear.replace('年', ''),
+      orderItemList: $scope.model.selectedSystemID,
       loginUser: getLoginUser()
     }).then(function successCallback(response) {
       if(response.data.err){
         bootbox.alert(response.data.msg);
         return false;
       }
-      location.href = '/systemAccount';
+      location.href = '/order';
     }, function errorCallback(response) {
       bootbox.alert('网络异常，请检查网络设置');
     });
@@ -252,18 +347,8 @@ app.controller('myCtrl', function ($scope, $http) {
     });
   };
 
-  //todo 数据校验
-  $scope.checkData = function(){
-    // 当前支行是否存在一笔待支付或已支付的订单
-    // 当前支行是否没有创建过初始账号
-    return true;
-  };
-
   $scope.onSubmit = function () {
-    if(!$scope.checkData()){
-      return false;
-    }
-    if($scope.model.accountID === ''){
+    if($scope.model.orderID === ''){
       $scope.addData();
     }else{
       $scope.changeData();

@@ -1,0 +1,162 @@
+<div class="breadcrumbs" id="breadcrumbs">
+  <ul class="breadcrumb">
+    <li>
+      <i class="icon-home home-icon"></i>
+      <a href="/index">主页</a>
+    </li>
+    <li>
+      客户信息管理
+    </li>
+    <li class="active">订单管理</li>
+  </ul>
+</div>
+
+<div class="page-content" ng-app="myApp" ng-controller="myCtrl">
+  <div class="page-header">
+    <h1>
+      订单管理
+      <small>
+        <i class="icon-double-angle-right"></i>
+        信息查询
+      </small>
+    </h1>
+  </div>
+
+  <!--  <div class="clearfix form-actions">-->
+  <!--    <div class="col-md-9">-->
+  <!--      <form class="form-inline">-->
+  <!--        <div class="form-group">-->
+  <!--          <label for="exampleInputEmail2">数据状态</label>-->
+  <!--          &nbsp;-->
+  <!--          <select ng-model="model.dataStatus">-->
+  <!--            <option value="A">全部</option>-->
+  <!--            <option value="N">正常</option>-->
+  <!--            <option value="F">冻结</option>-->
+  <!--            <option value="D">删除</option>-->
+  <!--          </select>-->
+  <!--        </div>-->
+  <!--        &nbsp;-->
+  <!--        <button type="button" class="btn btn-sm btn-info btn-search" ng-click="onSearch()">-->
+  <!--          <i class="icon-search"></i>-->
+  <!--          查询-->
+  <!--        </button>-->
+  <!--      </form>-->
+
+  <!--    </div>-->
+  <!--  </div>-->
+
+  <div class="row" id="app">
+    <div class="col-xs-12">
+      <a href="/order/edit?option=add" class="btn btn-sm btn-primary">
+        <i class="icon-plus"></i>
+        添加
+      </a>
+      <div class="space-6"></div>
+      <div class="table-header">
+        找到{{totalCount}}条数据
+      </div>
+      <div class="table-responsive">
+        <table id="data-list" class="table table-striped table-bordered table-hover no-margin-bottom">
+          <thead>
+          <tr>
+            <th class="center">订单编号</th>
+            <th class="center">银行</th>
+            <th class="center">支行</th>
+            <th class="center">订单日期</th>
+            <th class="center">订单类型</th>
+            <th class="center">订单金额</th>
+            <th class="center">服务到期日</th>
+            <th class="center">订单状态</th>
+            <th class="hidden-480">添加</th>
+            <th>
+              <i class="icon-time bigger-110 hidden-480"></i>
+              添加时间
+            </th>
+            <th class="hidden-480">更新</th>
+            <th>
+              <i class="icon-time bigger-110 hidden-480"></i>
+              更新时间
+            </th>
+            <th>操作</th>
+          </tr>
+          </thead>
+          <tbody>
+          {{#each dataList}}
+            <tr>
+              <td class="center">{{this.orderID}}</td>
+              <td>{{this.bankName}}</td>
+              <td>{{this.branchName}}</td>
+              <td>{{this.orderDate}}</td>
+              <td>{{this.orderTypeText}}</td>
+              <td>¥{{this.orderAmount}}</td>
+              <td>{{this.serviceDueDate}}</td>
+              <td>{{this.orderStatusText}}</td>
+              <td>{{this.createUser}}</td>
+              <td>{{this.createTime}}
+              <td>{{this.updateUser}}</td>
+              <td>{{this.updateTime}}</td>
+              <td>
+                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+
+                  {{# if this.isWait}}
+<!--                    <button type="button" class="btn btn-sm btn-primary" ng-click="onChange({{this.orderID}})">-->
+<!--                      <i class="icon-edit"></i>-->
+<!--                      修改-->
+<!--                    </button>-->
+
+                    <button type="button" class="btn btn-sm btn-danger" ng-click="onPay('{{this.orderID}}')">
+                      <i class="icon-yen"></i>
+                      已支付
+                    </button>
+
+                    <button type="button" class="btn btn-sm btn-default" ng-click="onCancel('{{this.orderID}}')">
+                      <i class="icon-remove"></i>
+                      取消
+                    </button>
+                  {{/if}}
+                </div>
+              </td>
+            </tr>
+          {{/each}}
+          </tbody>
+        </table>
+      </div>
+      {{#if paginationArray}}
+        <div class="modal-footer no-margin-top">
+          <ul class="pagination pull-right no-margin">
+            <li class="prev">
+              {{#if prePageNum}}
+                <a href="/order?pageNumber={{prePageNum}}">
+                <i class="icon-double-angle-left"></i>
+                </a>
+              {{else}}
+                <span>
+              <i class="icon-double-angle-left"></i>
+            </span>
+              {{/if}}
+            </li>
+            {{#each paginationArray}}
+              <li>
+                <a href="/order?pageNumber={{this}}">{{this}}</a>
+              </li>
+            {{/each}}
+            <li class="next">
+              {{#if nextPageNum}}
+                <a href="/order?pageNumber={{nextPageNum}}">
+                <i class="icon-double-angle-right"></i>
+                </a>
+              {{else}}
+                <span>
+              <i class="icon-double-angle-right"></i>
+            </span>
+              {{/if}}
+            </li>
+          </ul>
+        </div>
+      {{/if}}
+    </div>
+  </div>
+</div>
+
+<input type="hidden" value="{{currentPageNum}}" id="hidden-currentPageNum">
+<script src="/javascripts/view/order.js"></script>

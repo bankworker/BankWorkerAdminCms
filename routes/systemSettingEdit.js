@@ -31,7 +31,6 @@ router.post('/', function (req, res, next) {
   let data = {
     systemName: req.body.systemName,
     systemPrice: req.body.systemPrice,
-    servicePrice: req.body.servicePrice,
     loginUser: req.body.loginUser
   };
 
@@ -56,7 +55,6 @@ router.put('/', function (req, res, next) {
     systemID: req.body.systemID,
     systemName: req.body.systemName,
     systemPrice: req.body.systemPrice,
-    servicePrice: req.body.servicePrice,
     loginUser: req.body.loginUser
   };
 

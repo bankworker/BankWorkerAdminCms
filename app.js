@@ -15,7 +15,8 @@ const systemSettingRouter = require('./routes/systemSetting');
 const systemSettingEditRouter = require('./routes/systemSettingEdit');
 const systemAccountRouter = require('./routes/systemAccount');
 const systemAccountEditRouter = require('./routes/systemAccountEdit');
-
+const orderRouter = require('./routes/order');
+const orderEditRouter = require('./routes/orderEdit');
 const commonRouter = require('./routes/common');
 
 let app = express();
@@ -33,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //登录拦截器
 app.use(function (req, res, next) {
   let url = req.originalUrl;
-  if (url !== '/' && req.cookies['bwa.user'] === undefined) {
+  if (url !== '/' && req.cookies['bwaLoginUser'] === undefined) {
     return res.redirect("/");
   }
   next();
@@ -49,7 +50,8 @@ app.use('/systemSetting', systemSettingRouter);
 app.use('/systemSetting/edit', systemSettingEditRouter);
 app.use('/systemAccount', systemAccountRouter);
 app.use('/systemAccount/edit', systemAccountEditRouter);
-
+app.use('/order', orderRouter);
+app.use('/order/edit', orderEditRouter);
 app.use('/common', commonRouter);
 
 // catch 404 and forward to error handler

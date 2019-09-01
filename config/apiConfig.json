@@ -14,9 +14,12 @@
       "chinaMapping": "/api/chinaMapping",
       "admin": "/api/admin",
       "systemSetting": "/api/system/setting",
+      "serviceSetting": "/api/service/setting",
       "systemAccount": "/api/system/account",
       "systemAccountExist": "/api/system/account/exist",
-      "changeStatus4SystemAccount": "/api/system/account/changeStatus"
+      "changeStatus4SystemAccount": "/api/system/account/changeStatus",
+      "order": "/api/order",
+      "changeStatus4Order": "/api/order/changeStatus"
     }
   }
 }

@@ -53,3 +53,32 @@
 .table button{
     width: 72px;
 }
+.form-mix .control-label{
+    text-align: right;
+}
+.form-mix .form-group{
+    margin-bottom: 15px;
+
+}
+.form-mix .form-group {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.service-edit .table th:nth-child(1){
+    width: 15%;
+}
+.service-edit .table th:nth-child(2){
+    width: 60%;
+}
+.right{
+    text-align: right !important;
+}
+.payment-price{
+    font-size: 22px;
+    color: #d62b2b;
+}
+.original-price{
+    font-size: 16px;
+    color: #a5a5a5;
+    text-decoration: line-through;
+}

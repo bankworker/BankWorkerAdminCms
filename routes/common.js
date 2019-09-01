@@ -84,6 +84,26 @@ router.get('/systemList', function (req, res, next) {
   });
 });
 
+router.get('/serviceList', function (req, res, next) {
+  let service = new commonService.commonInvoke('serviceSetting');
+  let parameter = '1/999/N';
+
+  service.get(parameter, function (result) {
+    if(result.err){
+      res.json({
+        err: true,
+        msg: result.msg
+      });
+    }else{
+      res.json({
+        err: !result.content.result,
+        msg: result.content.responseMessage,
+        serviceList: result.content.responseData
+      });
+    }
+  });
+});
+
 router.get('/bankBranchWithCode', function (req, res, next) {
   let service = new commonService.commonInvoke('bankBranchWithCode');
   let parameter = req.query.bankCode + '/' + req.query.branchCode;
