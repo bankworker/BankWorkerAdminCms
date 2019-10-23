@@ -138,7 +138,7 @@ app.controller('myCtrl', function ($scope, $http) {
 
   $scope.onDelete = function (branchID, branchName) {
     bootbox.confirm({
-      message: '您确定要将' + branchName + '修改为删除状态吗？',
+      message: '您确定要将' + branchName + '修改为冻结状态吗？',
       buttons: {
         confirm: {
           label: '确认',

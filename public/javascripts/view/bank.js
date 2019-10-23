@@ -18,7 +18,7 @@ app.controller('myCtrl', function ($scope, $http) {
 
   $scope.onDelete = function (bankID, bankName) {
     bootbox.confirm({
-      message: '您确定要将' + bankName + '修改为删除状态吗？',
+      message: '您确定要将' + bankName + '修改为冻结状态吗？',
       buttons: {
         confirm: {
           label: '确认',

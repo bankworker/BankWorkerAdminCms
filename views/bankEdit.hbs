@@ -59,7 +59,7 @@
             <div class="form-group">
               <label class="col-sm-2 control-label">银行编码</label>
               <div class="col-sm-10" ng-class="{'check-invalid':model.bankCodeInvalid}">
-                <input type="text" class="form-control" maxlength="12" name="bankCode" ng-blur="onBankCodeBlur()" ng-model="model.bankCode" required placeholder="请输入银行编码">
+                <input type="text" class="form-control" maxlength="11" name="bankCode" ng-blur="onBankCodeBlur()" ng-model="model.bankCode" required placeholder="请输入银行编码">
                 <p ng-show="model.bankCodeInvalid">该银行编码已存在！</p>
               </div>
             </div>

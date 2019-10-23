@@ -86,7 +86,9 @@
         <table id="data-list" class="table table-striped table-bordered table-hover no-margin-bottom">
           <thead>
           <tr>
+            <th class="center">总行Logo</th>
             <th class="center">支行Logo</th>
+            <th class="center">总行编码</th>
             <th class="center">支行编码</th>
             <th class="center">支行名称</th>
             <th class="center">支行地址</th>
@@ -110,8 +112,12 @@
           {{#each dataList}}
             <tr>
               <td class="center">
+                <img src="{{this.bankLogo}}" style="width: 120px">
+              </td>
+              <td class="center">
                 <img src="{{this.branchLogo}}" style="width: 120px">
               </td>
+              <td>{{this.bankCode}}</td>
               <td>{{this.branchCode}}</td>
               <td>{{this.branchName}}</td>
               <td>{{this.provinceName}}{{this.cityName}}{{this.districtName}}{{this.address}}</td>
@@ -131,7 +137,7 @@
                   {{# if this.isNormal}}
                     <button type="button" class="btn btn-sm btn-danger" ng-click="onDelete('{{this.branchID}}','{{this.branchName}}')">
                       <i class="icon-trash"></i>
-                      删除
+                      冻结
                     </button>
                   {{/if}}
 
