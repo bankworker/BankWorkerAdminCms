@@ -2,7 +2,7 @@ let app = angular.module('myApp', []);
 
 app.controller('myCtrl', function ($scope, $http) {
   $scope.model = {
-    bankBranchLogo: '/images/logo_temp.jpeg',
+    bankBranchLogo: '',
     bankBranchID: '',
     currentBankCode: 0,
     selectedBank: null,
