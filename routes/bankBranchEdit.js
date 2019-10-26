@@ -1,24 +1,9 @@
 let express = require('express');
 let commonService = require('../service/commonService');
-let uploadUtils = require('../common/uploadUtils');
 let router = express.Router();
-let upload = uploadUtils.createUploadObject(['public','upload','branch']);
 
 router.get('/', function(req, res, next) {
   res.render('bankBranchEdit', { title: '支行信息编辑', bankBranchID: req.query.bankBranchID });
-});
-
-router.post('/fileUpload',  upload.array('file', 10), function(req,res,next){
-  let uploadImageUrlArray = [];
-  req.files.forEach(function (file, index) {
-    uploadImageUrlArray.push('http://' + req.headers.host + '/upload/branch/' + file.originalname)
-  });
-  //将其发回客户端
-  res.json({
-    err : false,
-    imageUrl : uploadImageUrlArray
-  });
-  res.end();
 });
 
 router.get('/branchCode/exist', function (req, res, next) {

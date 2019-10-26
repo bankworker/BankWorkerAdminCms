@@ -19,7 +19,8 @@
       "systemAccountExist": "/api/system/account/exist",
       "changeStatus4SystemAccount": "/api/system/account/changeStatus",
       "order": "/api/order",
-      "changeStatus4Order": "/api/order/changeStatus"
+      "changeStatus4Order": "/api/order/changeStatus",
+      "branchServiceSetting": "/api/serviceSetting/branch"
     }
   }
 }

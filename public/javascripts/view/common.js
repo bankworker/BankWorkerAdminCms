@@ -81,7 +81,7 @@ function showLoginUser() {
   let cookie = getCookie(loginCookieName);
   if(cookie !== null){
     let loginUser = JSON.parse(cookie);
-    $('#login-user-photo').attr('src', loginUser.adminPhoto);
+    // $('#login-user-photo').attr('src', loginUser.adminPhoto);
     $('li.light-blue span.user-info>span').text(loginUser.adminName);
   }
 }

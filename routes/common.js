@@ -1,8 +1,6 @@
 let express = require('express');
 let commonService = require('../service/commonService');
-let uploadUtils = require('../common/uploadUtils');
 let router = express.Router();
-let upload = uploadUtils.createUploadObject(['public','upload','bank']);
 
 router.get('/chinaMapping', function (req, res, next) {
   let service = new commonService.commonInvoke('chinaMapping');
@@ -122,6 +120,26 @@ router.get('/bankBranchWithCode', function (req, res, next) {
       });
     }
   });
+});
+
+router.get('/serviceSetting',  (req,res) => {
+  let service = new commonService.commonInvoke('branchServiceSetting');
+  let parameter = req.query.bankCode + '/' + req.query.branchCode;
+
+  service.get(parameter, function (result) {
+    if (result.err) {
+      res.json({
+        err: true,
+        msg: result.msg
+      });
+    } else {
+      res.json({
+        err: !result.content.result,
+        msg: result.content.responseMessage,
+        serviceSetting: result.content.responseData
+      });
+    }
+  })
 });
 
 module.exports = router;
