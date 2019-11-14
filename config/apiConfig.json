@@ -1,7 +1,7 @@
 {
   "StoreService": {
     "host": "localhost",
-    "port": 8081,
+    "port": 8080,
     "path": {
       "login": "/api/admin/login",
       "bank": "/api/bank",

@@ -159,3 +159,8 @@ Date.prototype.format = function (format) {
   }
   return format;
 };
+
+function buildUploadRemoteUri(serviceUrl, dirName) {
+  let systemName = 'bankWorker';
+  return `${serviceUrl}?system=${systemName}&dirName=${dirName}`;
+}
